@@ -12,7 +12,7 @@ public class Price {
     private Long priceList;
     private Integer priority;
     private Double price;
-    private String currency;
+    private Currency currency;
 
 
     public boolean isBetween (LocalDateTime searchCriteria) {

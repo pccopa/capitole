@@ -8,15 +8,18 @@ public class Currency {
 
     private CurrencyDetail detail;
 
-    public Currency (String currencyName) {
+    private Currency (String currencyName) {
         if (!isValidISOCurrency(currencyName)) {
             throw new InvalidCurrencyException("An invalid ISO currency code has been provided");
         }
         detail = new CurrencyDetail(currencyName);
     }
 
+    public static Currency create(String currencyName) {
+        return new Currency (currencyName);
+    }
 
-    public boolean isValidISOCurrency (String currencyName) {
+    private boolean isValidISOCurrency (String currencyName) {
         return java.util.Currency.getAvailableCurrencies()
                 .stream()
                 .anyMatch(currency -> currency.getCurrencyCode().equals(currencyName));
