@@ -16,10 +16,10 @@ public class PriceController {
 
     private final FindProductPriceByDatePort findProductPriceByDatePort;
 
-    @GetMapping("/brands/{brandId}/products/{productId}")
-    public PriceByDateResponse getPricesByDate (@PathVariable Long brandId,
-                                                @PathVariable Long productId,
-                                                @RequestParam("searchDate") LocalDateTime searchDate) {
+    @GetMapping
+    public PriceByDateResponse getPricesByDate (@RequestParam ("brandId") Long brandId,
+                                                @RequestParam ("productId") Long productId,
+                                                @RequestParam ("searchDate") LocalDateTime searchDate) {
         FindPriceByDateCommand command = new FindPriceByDateCommand(brandId, productId, searchDate);
         return findProductPriceByDatePort.find(command);
     }
