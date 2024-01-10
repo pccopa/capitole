@@ -50,22 +50,22 @@ public class PriceSteps {
 
     @Then("the response should have price {double}")
     public void thenResponseShouldHavePrice(Double expectedPrice) {
-        assertEquals(expectedPrice, searchResult.getPrice());
+        assertEquals(expectedPrice, searchResult.price());
     }
 
     @Then("the response should have priceList {long}")
     public void thenResponseShouldHavePriceList(Long expectedPriceList) {
-        assertEquals(expectedPriceList, searchResult.getPriceList());
+        assertEquals(expectedPriceList, searchResult.priceList());
     }
 
     @Then("the response should have productId {long}")
     public void thenResponseShouldHaveProductId(Long expectedProductId) {
-        assertEquals(expectedProductId, searchResult.getProductId());
+        assertEquals(expectedProductId, searchResult.productId());
     }
 
     @Then("the response should have brandId {long}")
     public void thenResponseShouldHaveBrandId(Long expectedBrandId) {
-        assertEquals(expectedBrandId, searchResult.getBrandId());
+        assertEquals(expectedBrandId, searchResult.brandId());
     }
 
 

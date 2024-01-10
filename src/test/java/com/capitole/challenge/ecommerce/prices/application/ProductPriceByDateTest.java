@@ -33,13 +33,7 @@ public class ProductPriceByDateTest {
         when(productPort.findProduct(anyLong(), anyLong())).thenReturn(productMock);
 
         var response = service.find(command);
-        PriceByDateResponse expected = new PriceByDateResponse();
-        expected.setPrice(40d);
-        expected.setPriceList(4L);
-        expected.setProductId(1l);
-        expected.setBrandId(1L);
-        expected.setRequestDate(now);
-
+        PriceByDateResponse expected = new PriceByDateResponse(1L,1L,4l,now,40d);
         assertEquals(expected, response);
 
     }
@@ -51,13 +45,7 @@ public class ProductPriceByDateTest {
         when(productPort.findProduct(anyLong(), anyLong())).thenReturn(productMock);
 
         var response = service.find(command);
-        PriceByDateResponse expected = new PriceByDateResponse();
-        expected.setPrice(20d);
-        expected.setPriceList(2L);
-        expected.setProductId(1l);
-        expected.setBrandId(1L);
-        expected.setRequestDate(fiveDaysAgo);
-
+        PriceByDateResponse expected = new PriceByDateResponse(1L,1L,2L,fiveDaysAgo,20d);
         assertEquals(expected, response);
 
     }

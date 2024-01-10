@@ -6,16 +6,12 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class PriceByDateResponse {
-
-    private Long productId;
-    private Long brandId;
-    private Long priceList;
-    private LocalDateTime requestDate;
-    private Double price;
-
-
+public record PriceByDateResponse (
+    Long productId,
+    Long brandId,
+    Long priceList,
+    LocalDateTime requestDate,
+    Double price
+)
+{
 }
