@@ -5,6 +5,7 @@ import com.capitole.challenge.ecommerce.prices.application.ports.in.FindProductP
 import com.capitole.challenge.ecommerce.prices.application.ports.out.PriceByDateResponse;
 import com.capitole.challenge.ecommerce.shared.WebAdapter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -19,7 +20,7 @@ public class PriceController {
     @GetMapping
     public PriceByDateResponse getPricesByDate (@RequestParam ("brandId") Long brandId,
                                                 @RequestParam ("productId") Long productId,
-                                                @RequestParam ("searchDate") LocalDateTime searchDate) {
+                                                @RequestParam ("searchDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime searchDate) {
         FindPriceByDateCommand command = new FindPriceByDateCommand(brandId, productId, searchDate);
         return findProductPriceByDatePort.find(command);
     }
