@@ -24,4 +24,8 @@ public class Currency {
                 .stream()
                 .anyMatch(currency -> currency.getCurrencyCode().equals(currencyName));
     }
+
+    public String currencyName() {
+        return detail.getCurrencyName();
+    }
 }

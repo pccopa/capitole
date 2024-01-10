@@ -16,11 +16,13 @@ public class Price {
 
 
     public boolean isBetween (LocalDateTime searchCriteria) {
-        return startDate.isBefore(searchCriteria)
-                && endDate.isAfter(searchCriteria);
+        return !searchCriteria.isBefore(startDate) && !searchCriteria.isAfter(endDate);
+
     }
 
-
+    public String getCurrencyName() {
+        return currency.currencyName();
+    }
 
 
 }
